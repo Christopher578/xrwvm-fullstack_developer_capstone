@@ -17,7 +17,6 @@ mongoose.connect("mongodb://mongo_db:27017/",{'dbName':'dealershipsDB'});
 const Reviews = require('./review');
 
 const Dealerships = require('./dealership');
-const dealership = require('./dealership');
 
 try {
   Reviews.deleteMany({}).then(()=>{
@@ -60,7 +59,7 @@ app.get('/fetchReviews/dealer/:id', async (req, res) => {
 // Express route to fetch all dealerships
 app.get('/fetchDealers', async (req, res) => {
 //Write your code here
-try {
+  try {
     const documents = await Dealerships.find();
     res.json(documents);
   } catch (error) {
@@ -83,7 +82,7 @@ try {
 app.get('/fetchDealer/:id', async (req, res) => {
 //Write your code here
 try {
-    const documents = await Dealerships.find({ id: req.params.id});
+    const documents = await Dealerships.find({id: req.params.id});
     res.json(documents);
   } catch (error) {
     res.status(500).json({ error: 'Error fetching documents' });
