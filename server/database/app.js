@@ -117,7 +117,7 @@ app.post('/insert_review', express.raw({ type: '*/*' }), async (req, res) => {
 });
 
 // Start the Express server
-app.listen(port, () => {
+app.listen(port, function() {
   console.log('Server is running on http://localhost:' + port);
 
 });
